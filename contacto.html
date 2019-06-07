@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bienes Raíces</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet"> <!--Estilo letra utilizada para toda la página-->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="contenedor contenido-header">
+            <div class="barra">
+                <a href="/">
+                    <img src="img/logo.svg" alt="Logotipo Bienes Raices">
+                </a>            
+                <nav class="navegacion">
+                    <a href="nosotros.html">Nosotros</a>
+                    <a href="anuncios.html">Anuncios</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contacto.html">Contacto</a>
+                </nav>
+            </div>            
+        </div><!-- Contenedor -->
+    </header>
+
+    <h1 class="fw-300 centrar-texto">Contacto</h1>
+    <img src="/img/destacada3.jpg" alt="Imagen principal">
+
+    <main class="contenedor seccion texto-entrada contenido-centrado">
+       <h2 class="fw-300 centrar-texto">Llena el formulario de contacto</h2>
+
+       <form class="contacto" action="">
+
+            <fieldset>
+                <legend>Información Personal</legend>
+                <label for="Nombre">Nombre: </label>
+                <input type="text" id="Nombre" placeholder="Tu Nombre">
+
+                <label for="Email">Email:</label>
+                <input type="email" id="Email" placeholder="Tu correo electrónico" required>
+
+                <label for="Telefono">Teléfono:</label>
+                <input type="tel" id="Telefono" placeholder="Tu Teléfono" required>
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje"></textarea>
+            </fieldset>
+
+            <fieldset>
+                <legend>Información Sobre Propiedad</legend>
+
+                <label for="VoC">Vende o Compra: </label>
+                <select id="opciones">
+                    <option value="" disabled selected>--  Seleccione  --</option>
+                    <option value="Vende">Vende</option>
+                    <option value="Compra">Compra</option>
+                </select>
+
+                <label for="Cantidad">Cantidad: </label>
+                <input type="number" min="0" max="20" step="0"><!--Min y Max solo aplica para los controles. Step permite avanzar el número haciendo saltos. Pero todo esto no se usa-->
+            </fieldset>
+
+            <fieldset>
+                <legend>Contacto</legend>
+                
+                    <p>Como Desea ser Contactad@:</p>
+                <div class="forma-opciones"> 
+                    <label for="telefono">Teléfono </label>
+                    <input type="radio" name="contenido" value="telefono" id="telefono">
+                    <!--Por medio del NAME un radio puede darse cuenta de la existencia del otro-->
+                    <label for="correo">Correo </label>
+                    <input type="radio" name="contenido" value="correo" id="correo">
+                </div>
+                <p>Si eligió Teléfono, Indique la Fecha y la Hora:</p>
+
+                <label for="Fecha">Fecha</label>
+                <input type="date" name="" id="Fecha">
+
+                <label for="Hora">Hora</label>
+                <input type="time" name="" id="hora" min="08:30" max="05:30">
+          
+            </fieldset>
+
+            <input type="submit" value="Enviar" class="boton boton-verde">
+            
+       </form>
+    </main>  
+
+    <footer class="seccion site-footer">
+        <div class="contenedor contenedor-footer">
+            <nav class="navegacion">                
+                <a href="nosotros.html">Nosotros</a>
+                <a href="anuncios.html">Anuncios</a>
+                <a href="blog.html">Blog</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+            <p class="copy">Todos los drechos son Reservados &copy;</p> 
+        </div>
+    </footer>
+</body>
+</html>

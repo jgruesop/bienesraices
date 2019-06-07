@@ -1,0 +1,376 @@
+/*TODOS LOS CAMBIOS SE REALIZAN EN CASCADA. POR ESTO ES NECESARIO ORGANIZAR TODO DE LA MANERA EN QUE SE VERA LA PÁGINA AL HACER SCROLL CON EL MOUSE.*/
+/*TENER EN CUENTA QUE TODO ELEMENTO QUE SEA ENLACE Y POSEEN POR DEFECTO UN (DISPLAY:BLOCK) Y OTROS (DISPLAY:INLINE) E IMPIDEN APLICAR FORMATO ALGUNO POR EJEMPLO APLICAR UNA ANCHO POR MEDIO DE WIDTH*/
+/*-----------------------------------------------------------*/
+/*GLOBALES - Organiza y genera cambios a elementos de manera global*/
+img{
+    max-width: 100%;/*Aplica un tamaño del 100% a todas la imagenes de la página*/
+}
+html{
+    font-size: 62.5%; /*Permite resetear el tamaño de la letra por medio del siguiente calculo
+    *--Reset para REMS es 62.5% = 10px de 16px que son los que tenia la página*/    
+    box-sizing: border-box;/*Impide que al palicar un borde este genere un valor extra que amplie el tamaño que se desea aplicar realmente*/
+}
+*, *:before, *:after{
+    box-sizing: inherit;/*Permite mantener los pixeles que se apliquen y no siga incrementando su tamaño*/
+}
+body{
+    font-family:'Lato', sans-serif;/*Aplica cambios en la fuente de la letra de toda la página. Para esto se puede usar www.fonts.google.com*/
+    font-size: 1.6rem; /*1.6rem = 16px*/
+    line-height: 2;/*Permite asignar interlineado a los textos*/    
+}
+.contenedor{
+    max-width: 120rem;/*120rem = 1200px*/
+    margin: 0 auto;/*Permite dar espacio entre cada elemento hacia afuera y debe ser utilizado según el sentido de las manecillas del reloj.*/
+}
+h1{
+    font-size: 3.4rem;/*Tamaño del texto H1 en toda la página*/
+}
+h2{
+    font-size: 3.0rem;/*Tamaño del texto H2 en toda la página*/
+}
+h3{
+    font-size: 2.6rem;/*Tamaño del texto H3 en toda la página*/
+}
+h4{
+    font-size: 2.2rem;/*Tamaño del texto H4 en toda la página*/
+}
+
+/*-----------------------------------------------------------*/
+/*UTILIDADES - Permite reutilizar codigo sobre diferentes elementos*/
+.seccion{
+    margin-top: 2rem;/*Aplica sepración entre elementos hacia arriba hacia abajo utilizando espacios por fuera del elemento*/
+    margin-bottom: 2rem; /*Aplica separación entre elementos hacia afuera de abajo hacia arriba*/
+}
+.fw-300{
+    font-weight: 300;/*Agrega o quita cierto grosor a los textos principales, pero solo siempre y cuando este soportado dentro del stilo de fuente agregado desde googleFonts. que para este caso parte desde 300 a 900 siendo este ultimmo mas grueso*/ 
+    font-size: 4rem;/*Aplica tamaño al texto*/
+}
+.centrar-texto{
+    text-align: center;/*Centra el texto dentro del contenedor*/
+}
+.dsplay-block{
+    display: block!important/*En los proyecto se pueden poner maximo 2 importan, los cuales darán prioridad a esta instrucción sobre el elemento sin importar que exista otra instrucción más abajo.
+    * Si hay otros !important hacia abajo del primero la ley del CSS dará prioridad al ultimo detectado.*/;
+}
+.contenido-centrado{
+    max-width: 80rem;
+}
+
+/*-----------------------------------------------------------*/
+/*BOTONES - Organiza y afecta solo a los BOTONES*/
+.boton{
+    color: #ffffff;/*Aplica color al texto*/
+    text-decoration: none;/*Quita el subrayado del texto*/
+    font-weight: 700;/*Aplica negrilla al texto aplicando mayor grosor*/
+    font-size: 1.8rem;/*Tamaño del texto. 1.8rem = 18px*/
+    margin-top: 3rem;/*Agina espacio por fuera del elmento 3rem = 30px*/
+    padding: 1rem 3rem;/*Forza al texto hacia dentro, aplicando a sus lados un espacio que separa el borde del testo en sus direcicones arriba, abajo, izquierda y derecha*/
+    display: inline-block;/*permite al botos ser modificado mediante el padding o margin*/
+    text-align: center;/*Alinea el texto hacia el centro*/
+    border: none;/*Elimina los bordes del boton*/
+}
+.boton{
+    cursor: pointer;
+}
+.boton-amarillo{
+    background-color: #e08709;/*Color de fondo*/
+}
+.boton-verde{
+    background-color: #71b100;/*Color de fondo*/
+}
+
+/*-----------------------------------------------------------*/
+/*HEADER - Organiza y afecta solo a los elementos de la cabecera de la página*/
+.site-header{
+    background-color: #333333;/*Color de fondo*/
+    padding: 1rem 0 3rem 0;/*Especifica un espacio hacia dentro del elemento aplicado según sentido de las manecillas del reloj*/
+}
+.site-header.inicio{
+    background-image: url(../img/header.jpg); /*Especifica si solo es imagen*/
+    background-position: center center; /*Muestra la imagen desde el centro y expandela para cubrir el contenido*/
+    background-size: cover; /*Permite forzar la imagen para que la muestre completa dentro del espacio disponible tanto en altura como lo ancho*/    
+    height: 100vh; /*es una función que ocupa el tamaño de la pantalla donde se vea la página*/
+    min-height: 50rem; /*Permite que la imagen expandirse según el tamaño del navegador o pantalla y simpre respetara el tamaño asignado. 50rem = 500px*/
+}
+.contenido-header{
+    height: 100%;/*Toma toda la altura del contenerdo padre que esta caso es site-contenedor.inicio*/
+    display: flex;/*En primera instancia se pierde el diseño realizado. ya que FLEX es bidireccional, es decir, puede mover el texto dentro del contenedor de izquierda a derecha, derecha a izquierda, de abajo hacia arriba o de arriba hacia abajo. Por eso es importante darle direccion al texto.*/
+    flex-direction: column;/*Sus propiedades son Row = Este es por defecto, no hace cambios y corre de izquierda a derecha. row-reverse = Coloca el texto al revez, es decir, derecha a izquierda. Column = cambia el contenido de arriba hacia abajo.*/
+    justify-content: space-between;/*Sus propiedades son Flex-start = efecto por defult. Flex-end = Posiciona los elementos hacia abajo. Center = Ubica los elementos al centro del contenedor. Space-around = Ubica los elementos en el medio pero con un espacio medio entre ellos. Space-evenly = Es igual a space-around. Space-between = Permite alinear uno elemento abajo y otros arriba del contenedor.*/
+}
+.contenido-header h1{
+    color: #ffffff; /*Aplica color al texto*/
+    max-width: 70rem;/*Aplica cierta cantidad de espacio al texto y genera una nueva linea */
+    line-height: 2;/*Aplica interlineado entre el texto*/
+    padding-bottom: 2rem/*Aplica espacio hacia dentro del contenedor de abajo hacia arriba. 2rem = 20px*/    
+}
+.barra{
+   display: flex;/*Permite ubicar la barra de navegación al lado derecho*/
+   justify-content: space-between; /*Permite ubicar la barra de navegación. flex-star:(default) no hace ningún cambio, ubica hacia la izquierda el texto. 
+   flex-end:ubica hacia la derecha el texto. flex-center:Muestra texto al centro. Existe también space-around:Dá un formato con espacios lado a lado entre los textos. space-evenly: Es similar al anterior. space-between: Permite alinear un texto hacia la derecha y el otro hacia la izquierda con expacios que ocupan el ancho del contenedor.*/
+   align-items: center; /*Exiten propiedades para alinear texto con Flex-end:Alinea el texto hacia abajo. Flex-star:Alinea el texto hacia arriba. Flex-center:Alinea texto al centro. Y todo esto será de manera vertical*/
+   padding-top: 3rem;/*Padding: permite dar espacio hacia dentro del elemento. Marggin: Es la separación con otros elemento hacia fuera. 3rem = 30px*/      
+}
+
+
+/*-----------------------------------------------------------*/
+/*NAVEGACIÓN - Organiza y solo afecta a los elementos de la navegación*/
+.navegacion a{
+    color: #ffffff; /*Colorea un texto en especifico*/
+    text-decoration: none; /*Permite quitar el subrayado del texto de navegación*/
+    font-size: 1.8rem;/*Permite dar un tamaño a la letra. 1.8rem = 18px*/
+    margin-right: 2rem;/*Permite separar los elementos hacia fuera entre uno y el otro, es decir, proporsiona espacio entre los elementos o items hacia la derecha. 2rem = 18px*/
+}
+.navegacion a:hover{
+    color: #71B100;/*Colorea un texto en especifico*/
+}
+.navegacion a:last-of-type{/*Last-of-type que afecta solo el último elemento de la lista. También exite first-of-type que afecta al primer elemento de la lista*/
+    margin: 0;
+}
+
+/*-----------------------------------------------------------*/
+/*ICONO NOSOTROS - Organiza y solo afecta a los elementos de LOS INCONOS NOSOTROS*/
+.icono-nosotros{
+    display: flex;/*Aplica formato solo a los div que pertenecen los iconos posicionandolos uno al frente del otro*/
+    justify-content: space-between;/*Permite aplicar los espacios entre los iconos de manera vertical. una vez aplicado el calculo en los DIV hijos, mediante el uso de Flex-basis*/
+}
+.icono{
+    flex-basis: calc(33.3% - 1rem);/*Aplica una flexibilidad basica entre cada uno de los elementos, pensando en los efectos responsive. Calc() = Calcula el espacio del 100% / 3 que es la cantidad de iconos*/
+    text-align: center;/*Centra todos los elementos dentro del DIv hijo*/
+}
+.icono h3{
+    text-transform: uppercase;/*Aplica formato uppercase = mayuscula a los textos. Tambien puede ser lowercase = minuscula. Capitalize = Primera letra en mayuscula.*/
+}
+
+/*-----------------------------------------------------------*/
+/*ANUNCIOS O CARDS - Organiza y solo afecta a los elementos de ANUNCIOS*/
+.contenedor-anuncios{
+    display: flex;/*Ubica todos los elementos de forma continua de modo vertical*/
+    justify-content: space-between;/*Permite aplicar los espacios entre los iconos de manera vertical. una vez aplicado el calculo en los DIV hijos, mediante el uso de Flex-basis*/
+    flex-wrap: wrap;/*Va siempre en el contenedor padre. Por default la propiedad es nowrap, es decir, que no genere cambios sobre el elemento. y permite controlar las lineas que ocupa un elemento mediante el tamaño del contenedor
+    * es decir, que maneja una sola linea o multiples lineas en una dirección continua simpre teneiendo en cuenta el tamaño del contenedor*/
+}
+.anuncio{
+    flex: 0 0 calc(33.3% - 1rem);/*Esta es una forma corta de las tres propiedades comentradas abajo. El primer 0 corresponde a flex-grow, el segundo 0 a flex-shrink y el clac() a flex-basis*/
+    /* flex-grow: 0;/*Va en elemento hijo. Con el valor 1 el elmento crece siempre que el elemento pueda. Mientras que con 0 impide que el elemento se encoja y conserve su contextura gracias al calculo realizado con flex-basis*/
+    /* flex-shrink: 0;/*Con el valor 1 el elmento queda por defecto y se encoge. Mientras que con 0 impide que el elemento se encoja y conserve su contextura gracias al calculo realizado con flex-basis*/
+    /* flex-basis: calc(33.3% - 1rem);/*Calcula el tamaño que tendea cada elemento hijo dentro del contenedro padre*/
+    border: 1px solid #b5b5b5;/*Particularmente border soporta muchas propiedades pero entre las más usadas estan, 1px = el ancho del borde. Solid = Estilo de la linea que rodea el elemento. Color = Será el color de la linea*/
+    background-color: #f5f5f5;/*Aplica color de fondo*/    
+    margin-bottom: 2rem;
+}
+.contenido-anuncio{
+    padding: 2rem;/*Aplica tamaño hacia dentro del elemento*/
+}
+.contenido-anuncio h3, p{
+    margin: 0;/*Elimina el espacio exstente fuera del elemento que trae por defecto*/
+}
+.anuncio-precio{
+    font-weight: 700;/*Aplica mayor grosor al texcto tipo negrilla de manera gradual*/
+    color: #71B100;/*Aplica color al texto*/
+}
+.icono-caracteristicas{
+    display: flex;/*Ubica todos los elementos de forma continua de modo vertical, para luego ser acomodados a nuestro antojo dentro del contenedor*/
+    list-style: none;/*Elimina las viñetas existentes en una lista. Pero tambien permite personalizar el icono de la viñeta de distintas maneras*/
+    padding: 0;/*Elimina el tamaño de los bordes por defecto de los Li*/
+    flex: 1;/*El valor 1 permite que el elemento se expanda lo que más pueda, respetando el max-width*/
+    max-width: 50rem;/*Permite dar un ancho maximo de 500px*/
+    flex: 1;/*Con el valor 1 le indica al elmento que se exapanda lo que más pueda respetando el tamaño del contenedor*/
+}
+.icono-caracteristicas li{
+    flex: 1;/*Con el valor 1 le indica al elmento que se exapanda lo que más pueda respetando el tamaño del contenedor*/
+    display: flex;/*Ubica todos los elementos de forma continua de modo vertical, para luego ser acomodados a nuestro antojo dentro del contenedor*/
+}
+.icono-caracteristicas li, img{
+    margin-right: 2rem;/*Asigna un margen de separación entre el icono y el texto hacia la derecha*/
+    justify-content: flex-end;/*Justifica la imagen al hacia el lado izquierdo*/
+}
+.ver-todas{
+    display: flex;/*Ubica todos los elementos de forma continua de modo vertical, para luego ser acomodados a nuestro antojo dentro del contenedor*/
+    justify-content: flex-end;/*Posiciona el elemento hacia la izquierda*/
+}
+
+/*-----------------------------------------------------------*/
+/*CONTACTO - Organiza y solo afecta a los elementos del CONTACTO*/
+.imagen-contacto{
+    background-image: url(../img/encuentra.jpg);/*Aplica una imágen de fondo*/
+    background-size: cover;/*Especifica el tamaño de la imagen de fondo*/
+    background-position: center center;/*Aplica una posicion central a la imagen de fondo*/
+    height: 40rem; /*Aplica tamaño la imagen de fondo*/
+    display: flex;/*Ubica todos los elementos de forma continua de modo vertical, para luego ser acomodados a nuestro antojo dentro del contenedor*/
+    align-items: center;/*Permite que todos los elementos dentro del contenedor se ubiquen de manera centrada*/
+}
+.contenido-contacto{
+    flex: 1;/*Detecta la cantidad de elementos y tamaño existentes, para realizar una division. Ejemplo si hay 1000px disponibles entre los elementos existentes asigna el tamaño resultante a ese oesos elemento*/
+    color: #ffffff;/*Aplica color blanco al texto*/
+}
+.contenido-contacto p{
+    font-size: 1.8rem;/*Aplica tamaño al texto 1.8rem = 18px*/
+}
+
+
+/*-----------------------------------------------------------*/
+/*SECCION INFERIOR - Organiza y solo afecta a los elementos del BLOG*/
+.seccion-inferior{
+    display: flex;/*Ubica todos los elementos de forma continua de modo vertical, para luego ser acomodados a nuestro antojo dentro del contenedor*/
+    justify-content: space-between;/*Permite aplicar espacio entre un elemento y otro ubicando cada uno de los elemento arriba y abajo o de izquierda y derecha, dependiendo su ubicación*/
+}   
+.seccion-inferior .blog{
+    flex-basis: 60%;/*Porporsiona un tamaño basico entre el blog y el testimonial*/
+}
+.seccion-inferior .testimoniales{
+    flex-basis: calc(40% - 3rem);/*Calcula un tamaño basico entre los elementos exitentes. En este caso se da entre articulo y testimonial de manera vertical*/
+}
+.entrada-blog{
+    display: flex;/*Ubica todos los elementos de forma continua de modo vertical, para luego ser acomodados a nuestro antojo dentro del contenedor*/
+    justify-content: space-between;/*Permite aplicar espacio entre un elemento y otro ubicando cada uno de los elemento arriba y abajo o de izquierda y derecha, dependiendo su ubicación*/
+    margin-bottom: 2rem; /*Asigna un espacio en la parte de abajo del elemento externamente*/
+}
+.entrada-blog :last-of-type{
+    margin-bottom: 0;/*Elimina el espacio en la parte inferior del ultimo articulo*/
+}
+.entrada-blog .imagen{
+    flex-basis: 40%;/*Porporsiona un tamaño basico a la imagen*/
+}
+.entrada-blog .texto-entrada{
+    flex-basis: calc(60% - 3rem);/*Calcula un tamaño basico entre los elementos exitentes*/
+}
+.texto-entrada a{
+    color: #000000;/*Aplica color texto de enlace*/
+    text-decoration: none;/*Aplica o quita decoración al texto, para este caso quita el subrayado debajo del texto, también puede ser para quitar las viñetas u otro elemento */
+}
+.texto-entrada p{
+    line-height: 3;/*Aplica un interlineado para el texto.*/
+}
+.texto-entrada h4{
+    margin: 0;/*Aplica margen 0 entodos los sentidos del elemento arriba, abajo, izquierda y derecha*/
+    line-height:1.2; /*Asigna un interlinedao entre el texto*/
+}   
+.texto-entrada h4::after{
+    content: '';/*Es un seudo elemento que no existe o que no es posible seleccionarse. Más información en http://developer.mozilla.org/es/docs/web/CSS/Pseudoelementos*/
+    display: block;/*Muestra los elementos en líneas independientes y acepta las propiedades width, height y margenes verticales.*/
+    width: 15rem;/*Especifica el ancho que contiene el area donde se encuenta el elemento*/
+    height: .5rem;/*Especifica altura que contiene el area del elemento*/
+    background-color: #71B100;/*Aplica color al fondo del elemento*/
+    margin-top: 1rem;/*Aplica un margen solo en la parte superior*/
+}
+.texto-entrada span{
+    color: #e08709;/*Aplica color al texto*/
+}
+
+
+/*-----------------------------------------------------------*/
+/*TESTIMONIALES - Organiza y solo afecta a los elementos de TESTIMONIALES*/
+.contenido-testimonial{
+    background-color: #71B100;/*Aplica un color de fondo*/
+    font-size: 2.4rem;/*Aplica tamaño al texto*/
+    border-radius: 2rem;/*Aplica una forma redondeada en la esquinas del DIV, simpre y cuando la imágen sea totalmente cuadrada.
+    * También border puede aplicar varios estilos en los bordes de manera separada por medio de border-top-right-radius = borde arriba en la derecha*/    
+    padding: 2rem;/*Aplica espacio hacia dentro del elemento. */
+    color: #ffffff;/*Aplica color sobre la letra*/
+    
+}
+.contenido-testimonial blockquote::before{
+    content: '';/*Crea el espocio para crear o cargar el elemento a utilizar, para este caso se hizo uso de la imagen de las comillas*/
+    background-image: url(../img/comilla.svg);/*Adjunta las comillas como contenido que ira antes del parráfo testimonial*/            
+    width: 4rem;/*Aplica ancho a las comillas para que se puedan ver, ya que por defecto no tiene visibilidad alguna*/
+    height: 4rem;/*Aplica altura a las comillas para que se puedan ver, ya que por defecto no tiene visibilidad alguna*/
+    position: absolute;/*Permite ubicar al elemento hijo al margen del elemeto padre, impidiendo que su ubicación salga sobre la posición solicitada.*/    
+    left: -2rem;/*Para mover un seudoelemento se puede utilizar las propiedades Left, right, top, buttom. */    
+}
+.contenido-testimonial blockquote{    
+    font-weight: 300;/*Aplica o quita negrilla o grosor al texto según el tipo de fuente seleccionado*/
+    padding-left: 5rem;/*Aplica espacio hacia dentro pero solo en el lado iquierdo*/
+    position: relative;/*Se aplica sobre el elemento padre, es decir, sobre el elemento principal. Posición relatica no cambia nada todo sigue igual. 
+    * Sino se tiene esta propiedad el elemento hijo se ubicara en la parte de arriba de la página web, para este caso el elemento hijo son las comillas.*/
+}
+.contenido-testimonial p{    
+    text-align: right;/*Alinea el texto hacia la derecha*/    
+    font-weight: 700;/*Aplica o quita negrilla o grosor al texto según el tipo de fuente seleccionado*/
+}
+
+
+/*-----------------------------------------------------------*/
+/*FOOTER - Organiza y solo afecta a los elementos del FOOTER = pie de página*/
+.site-footer{
+    background-color: #333333;/*Aplica colo de fondo*/
+    margin: 0;/*Aplica cero espacios al elmento en su parte externa*/    
+}
+.contenedor-footer{
+    padding: 3rem 0;/*Aplica espacio hacia dentro, para este caso solo aplica espacio dentro del elemento a y abajo de 3rem y en sus lados izquierda y derecha quedan en 0.*/
+    display: flex;/*Permite que los elementos se ubiquen de manera vertical seguido uno del otro*/    
+    justify-content: space-between;/*Aplica un espacio entre cada elemento permitiendo ubicar a los extremos según su orientación. Para este caso se aplica para que los elementos se ubicara uno al extremo derecho y el otro al izquierdo*/
+}
+.copy{
+    color: #ffffff;/*Aplica colo al texto parráfo*/
+    margin: 0;/*Aplica cero margen hacia afuera de la imagen para separar los otros elementos.*/
+}
+
+
+/*-----------------------------------------------------------*/
+/*Generación de estilos para las páginas internas del proyecto*/
+/*NOSOTROS*/
+.contenido-nosotros{
+    display: grid;/*Permite determinar el tipo de caja o cajas que estan generadas para un elemento*/
+    grid-template-columns: repeat(2, 1fr);/*Permite especificar la unión de dos columnas*/
+    grid-column-gap: 2rem;/*Especifica el espacio en medio de las dos columnas*/
+}
+.texto-nosotros blockquote{
+    font-weight: 900;/*Especifica el grosor del texto*/
+    font-size: 2rem;/*Especifica el tamaño de letra*/
+    margin: 0;/*Indica el espacio externo al elemento entre otro elemento en sentido a las manecillas cel reloj*/
+    padding: 0 0 2rem 0;/*Indica el espacio interno del elemento en sentido a las manecillas del reloj*/
+}
+
+/*-----------------------------------------------------------*/
+/*ANUNCIO*/
+.resumen-propiedad{
+    display: flex;/*Permite que los elementos se ubiquen de manera vertical seguido uno del otro*/    
+    justify-content: space-between;/*Aplica un espacio entre cada elemento permitiendo ubicar a los extremos según su orientación. Para este caso se aplica para que los elementos se ubicara uno al extremo derecho y el otro al izquierdo*/
+    align-items: center;/*Alinea verticalmente los elementos*/
+}
+
+/*-----------------------------------------------------------*/
+/*CONTACTO*/
+.contacto p{
+    font-size: 1.3rem;
+    color: #4f4f4f;
+    margin: 2rem 0 0 0;
+}
+legend{
+    color: #4f4f4f;
+    font-size: 2rem;
+}
+label{
+    display: flex;/*Permite que los elementos se ubiquen uno bajo el otro*/
+    text-transform: uppercase;
+    font-weight: 700;
+}
+input:not([type="submit"]), /*De esta manera se aplica a distantas opciones sin afectar a las demás*/
+textarea,/*Para descartar dos o más elementos se aplicaría así: input:not([type="submit"]):not([type="text"])*/
+select{
+    /*display: block;/*Permite que los elementos se alinien uno enseguida del otro*/
+    width: 100%;/**Expande el elemento al ancho permitido del contenedero*/
+    margin-bottom: 2rem;/*Aplica un espacio por fuera del elemento más precisamente abajo de este*/
+    padding: .5rem;/*Aplica espacio hacia dentro del elemento en todos sus sentidos*/
+    background-color: #e1e1e1;/*Aplica color al fondo del elemento*/
+    border-radius: .7rem;/*Redondea los bordes del elemento*/
+    border: none;/*la proipiedad :none; elimina los bordes del elemento*/
+}
+input[type="radio"]{
+    width: auto;
+    margin: 0;
+}
+select{
+    -webkit-appearance: none;/*Afecta al select unicamente, y permite que los cambios dados anteriormente se ejecuten sin ningun problema, es decir, que esta opción permite aplicar cambios en la apariencia del select*/
+    appearance: none;
+}
+textarea{
+    height: 20rem;/*Aplica altura al textarea destinado para el mensaje*/
+}
+.forma-opciones{
+    max-width: 30rem;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
