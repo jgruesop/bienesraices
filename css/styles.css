@@ -64,7 +64,7 @@ h4{
     text-decoration: none;/*Quita el subrayado del texto*/
     font-weight: 700;/*Aplica negrilla al texto aplicando mayor grosor*/
     font-size: 1.8rem;/*Tamaño del texto. 1.8rem = 18px*/
-    margin-top: 3rem;/*Agina espacio por fuera del elmento 3rem = 30px*/
+    margin: 3rem 0 3rem 0;/*Agina espacio por fuera del elmento 3rem = 30px*/
     padding: 1rem 3rem;/*Forza al texto hacia dentro, aplicando a sus lados un espacio que separa el borde del testo en sus direcicones arriba, abajo, izquierda y derecha*/
     display: inline-block;/*permite al botos ser modificado mediante el padding o margin*/
     text-align: center;/*Alinea el texto hacia el centro*/
