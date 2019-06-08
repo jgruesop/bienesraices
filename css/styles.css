@@ -139,7 +139,7 @@ h4{
     display: block;/*Hace que todos los enlaces se ubiquen uno bajo del otro*/
 }
 @media (min-width: 768px){
-    .navegación a{
+    .navegacion a{
         display:inline-block;
         font-size: 1.8rem;
         margin-right: 2rem;/*Permite separar los elementos hacia fuera entre uno y el otro, es decir, proporsiona espacio entre los elementos o items hacia la derecha. 2rem = 18px*/
