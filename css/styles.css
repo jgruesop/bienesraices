@@ -19,6 +19,7 @@ body{
     line-height: 2;/*Permite asignar interlineado a los textos*/    
 }
 .contenedor{
+    width: 95%;
     max-width: 120rem;/*120rem = 1200px*/
     margin: 0 auto;/*Permite dar espacio entre cada elemento hacia afuera y debe ser utilizado según el sentido de las manecillas del reloj.*/
 }
@@ -49,7 +50,7 @@ h4{
     text-align: center;/*Centra el texto dentro del contenedor*/
 }
 .dsplay-block{
-    display: block!important/*En los proyecto se pueden poner maximo 2 importan, los cuales darán prioridad a esta instrucción sobre el elemento sin importar que exista otra instrucción más abajo.
+    display: block!important;/*En los proyecto se pueden poner maximo 2 importan, los cuales darán prioridad a esta instrucción sobre el elemento sin importar que exista otra instrucción más abajo.
     * Si hay otros !important hacia abajo del primero la ley del CSS dará prioridad al ultimo detectado.*/;
 }
 .contenido-centrado{
@@ -68,6 +69,14 @@ h4{
     display: inline-block;/*permite al botos ser modificado mediante el padding o margin*/
     text-align: center;/*Alinea el texto hacia el centro*/
     border: none;/*Elimina los bordes del boton*/
+    display: block;
+    flex: 0 0 100%;
+}
+@media (min-width: 768px){
+    .boton{
+        display:inline-block;
+        flex: 0 0 auto;
+    }
 }
 .boton{
     cursor: pointer;
@@ -97,6 +106,11 @@ h4{
     display: flex;/*En primera instancia se pierde el diseño realizado. ya que FLEX es bidireccional, es decir, puede mover el texto dentro del contenedor de izquierda a derecha, derecha a izquierda, de abajo hacia arriba o de arriba hacia abajo. Por eso es importante darle direccion al texto.*/
     flex-direction: column;/*Sus propiedades son Row = Este es por defecto, no hace cambios y corre de izquierda a derecha. row-reverse = Coloca el texto al revez, es decir, derecha a izquierda. Column = cambia el contenido de arriba hacia abajo.*/
     justify-content: space-between;/*Sus propiedades son Flex-start = efecto por defult. Flex-end = Posiciona los elementos hacia abajo. Center = Ubica los elementos al centro del contenedor. Space-around = Ubica los elementos en el medio pero con un espacio medio entre ellos. Space-evenly = Es igual a space-around. Space-between = Permite alinear uno elemento abajo y otros arriba del contenedor.*/
+    text-align: center;/*Centra todo el texto*/
+}
+@media (min-width: 768px){
+    .contenido-header{
+        text-align: left;
 }
 .contenido-header h1{
     color: #ffffff; /*Aplica color al texto*/
@@ -105,11 +119,13 @@ h4{
     padding-bottom: 2rem/*Aplica espacio hacia dentro del contenedor de abajo hacia arriba. 2rem = 20px*/    
 }
 .barra{
+  padding-top: 3rem;/*Padding: permite dar espacio hacia dentro del elemento. Marggin: Es la separación con otros elemento hacia fuera. 3rem = 30px*/      
+}
+@media (min-width: 768px){
    display: flex;/*Permite ubicar la barra de navegación al lado derecho*/
    justify-content: space-between; /*Permite ubicar la barra de navegación. flex-star:(default) no hace ningún cambio, ubica hacia la izquierda el texto. 
    flex-end:ubica hacia la derecha el texto. flex-center:Muestra texto al centro. Existe también space-around:Dá un formato con espacios lado a lado entre los textos. space-evenly: Es similar al anterior. space-between: Permite alinear un texto hacia la derecha y el otro hacia la izquierda con expacios que ocupan el ancho del contenedor.*/
-   align-items: center; /*Exiten propiedades para alinear texto con Flex-end:Alinea el texto hacia abajo. Flex-star:Alinea el texto hacia arriba. Flex-center:Alinea texto al centro. Y todo esto será de manera vertical*/
-   padding-top: 3rem;/*Padding: permite dar espacio hacia dentro del elemento. Marggin: Es la separación con otros elemento hacia fuera. 3rem = 30px*/      
+   align-items: center; /*Exiten propiedades para alinear texto con Flex-end:Alinea el texto hacia abajo. Flex-star:Alinea el texto hacia arriba. Flex-center:Alinea texto al centro. Y todo esto será de manera vertical*/  
 }
 
 
@@ -118,46 +134,67 @@ h4{
 .navegacion a{
     color: #ffffff; /*Colorea un texto en especifico*/
     text-decoration: none; /*Permite quitar el subrayado del texto de navegación*/
-    font-size: 1.8rem;/*Permite dar un tamaño a la letra. 1.8rem = 18px*/
-    margin-right: 2rem;/*Permite separar los elementos hacia fuera entre uno y el otro, es decir, proporsiona espacio entre los elementos o items hacia la derecha. 2rem = 18px*/
+    font-size: 2.2em;/*Permite dar un tamaño a la letra. 1.8rem = 18px*/
+    /*margin-right: 2rem;/*Permite separar los elementos hacia fuera entre uno y el otro, es decir, proporsiona espacio entre los elementos o items hacia la derecha. 2rem = 18px*/
+    display: block;/*Hace que todos los enlaces se ubiquen uno bajo del otro*/
 }
+@media (min-width: 768px){
+    .navegación a{
+        display:inline-block;
+        font-size: 1.8rem;
+        margin-right: 2rem;/*Permite separar los elementos hacia fuera entre uno y el otro, es decir, proporsiona espacio entre los elementos o items hacia la derecha. 2rem = 18px*/
+    }
+    .navegacion a:last-of-type{/*Last-of-type que afecta solo el último elemento de la lista. También exite first-of-type que afecta al primer elemento de la lista*/
+        margin: 0;/*Aplica cero margenes hacia fuera del elemento, es decir, lo que lo rodea*/
+    }
+}    
 .navegacion a:hover{
     color: #71B100;/*Colorea un texto en especifico*/
 }
-.navegacion a:last-of-type{/*Last-of-type que afecta solo el último elemento de la lista. También exite first-of-type que afecta al primer elemento de la lista*/
-    margin: 0;
-}
+
 
 /*-----------------------------------------------------------*/
 /*ICONO NOSOTROS - Organiza y solo afecta a los elementos de LOS INCONOS NOSOTROS*/
-.icono-nosotros{
-    display: flex;/*Aplica formato solo a los div que pertenecen los iconos posicionandolos uno al frente del otro*/
-    justify-content: space-between;/*Permite aplicar los espacios entre los iconos de manera vertical. una vez aplicado el calculo en los DIV hijos, mediante el uso de Flex-basis*/
+@media (min-width: 768px){
+    .icono-nosotros{
+        display: flex;/*Aplica formato solo a los div que pertenecen los iconos posicionandolos uno al frente del otro*/
+        justify-content: space-between;/*Permite aplicar los espacios entre los iconos de manera vertical. una vez aplicado el calculo en los DIV hijos, mediante el uso de Flex-basis*/
+    }
 }
 .icono{
-    flex-basis: calc(33.3% - 1rem);/*Aplica una flexibilidad basica entre cada uno de los elementos, pensando en los efectos responsive. Calc() = Calcula el espacio del 100% / 3 que es la cantidad de iconos*/
     text-align: center;/*Centra todos los elementos dentro del DIv hijo*/
 }
+@media (min-width: 768px){
+    .icono{
+         flex-basis: calc(33.3% - 1rem);/*Aplica una flexibilidad basica entre cada uno de los elementos, pensando en los efectos responsive. Calc() = Calcula el espacio del 100% / 3 que es la cantidad de iconos*/
+    }
+}  
 .icono h3{
     text-transform: uppercase;/*Aplica formato uppercase = mayuscula a los textos. Tambien puede ser lowercase = minuscula. Capitalize = Primera letra en mayuscula.*/
 }
 
 /*-----------------------------------------------------------*/
 /*ANUNCIOS O CARDS - Organiza y solo afecta a los elementos de ANUNCIOS*/
-.contenedor-anuncios{
-    display: flex;/*Ubica todos los elementos de forma continua de modo vertical*/
-    justify-content: space-between;/*Permite aplicar los espacios entre los iconos de manera vertical. una vez aplicado el calculo en los DIV hijos, mediante el uso de Flex-basis*/
-    flex-wrap: wrap;/*Va siempre en el contenedor padre. Por default la propiedad es nowrap, es decir, que no genere cambios sobre el elemento. y permite controlar las lineas que ocupa un elemento mediante el tamaño del contenedor
-    * es decir, que maneja una sola linea o multiples lineas en una dirección continua simpre teneiendo en cuenta el tamaño del contenedor*/
+@media (min-width: 768px){
+    .contenedor-anuncios{
+        display: flex;/*Ubica todos los elementos de forma continua de modo vertical*/
+        justify-content: space-between;/*Permite aplicar los espacios entre los iconos de manera vertical. una vez aplicado el calculo en los DIV hijos, mediante el uso de Flex-basis*/
+        flex-wrap: wrap;/*Va siempre en el contenedor padre. Por default la propiedad es nowrap, es decir, que no genere cambios sobre el elemento. y permite controlar las lineas que ocupa un elemento mediante el tamaño del contenedor
+         * es decir, que maneja una sola linea o multiples lineas en una dirección continua simpre teneiendo en cuenta el tamaño del contenedor*/
+    }
 }
 .anuncio{
-    flex: 0 0 calc(33.3% - 1rem);/*Esta es una forma corta de las tres propiedades comentradas abajo. El primer 0 corresponde a flex-grow, el segundo 0 a flex-shrink y el clac() a flex-basis*/
-    /* flex-grow: 0;/*Va en elemento hijo. Con el valor 1 el elmento crece siempre que el elemento pueda. Mientras que con 0 impide que el elemento se encoja y conserve su contextura gracias al calculo realizado con flex-basis*/
-    /* flex-shrink: 0;/*Con el valor 1 el elmento queda por defecto y se encoge. Mientras que con 0 impide que el elemento se encoja y conserve su contextura gracias al calculo realizado con flex-basis*/
-    /* flex-basis: calc(33.3% - 1rem);/*Calcula el tamaño que tendea cada elemento hijo dentro del contenedro padre*/
     border: 1px solid #b5b5b5;/*Particularmente border soporta muchas propiedades pero entre las más usadas estan, 1px = el ancho del borde. Solid = Estilo de la linea que rodea el elemento. Color = Será el color de la linea*/
     background-color: #f5f5f5;/*Aplica color de fondo*/    
     margin-bottom: 2rem;
+}
+@media (min-width: 768px){
+    .anuncio{
+         flex: 0 0 calc(33.3% - 1rem);/*Esta es una forma corta de las tres propiedades comentradas abajo. El primer 0 corresponde a flex-grow, el segundo 0 a flex-shrink y el clac() a flex-basis*/
+            /* flex-grow: 0;/*Va en elemento hijo. Con el valor 1 el elmento crece siempre que el elemento pueda. Mientras que con 0 impide que el elemento se encoja y conserve su contextura gracias al calculo realizado con flex-basis*/
+            /* flex-shrink: 0;/*Con el valor 1 el elmento queda por defecto y se encoge. Mientras que con 0 impide que el elemento se encoja y conserve su contextura gracias al calculo realizado con flex-basis*/
+            /* flex-basis: calc(33.3% - 1rem);/*Calcula el tamaño que tendea cada elemento hijo dentro del contenedro padre*/
+    }
 }
 .contenido-anuncio{
     padding: 2rem;/*Aplica tamaño hacia dentro del elemento*/
@@ -201,7 +238,7 @@ h4{
     align-items: center;/*Permite que todos los elementos dentro del contenedor se ubiquen de manera centrada*/
 }
 .contenido-contacto{
-    flex: 1;/*Detecta la cantidad de elementos y tamaño existentes, para realizar una division. Ejemplo si hay 1000px disponibles entre los elementos existentes asigna el tamaño resultante a ese oesos elemento*/
+    flex: 0 0 95%;/*Detecta la cantidad de elementos y tamaño existentes, para realizar una division. Ejemplo si hay 1000px disponibles entre los elementos existentes asigna el tamaño resultante a ese oesos elemento*/
     color: #ffffff;/*Aplica color blanco al texto*/
 }
 .contenido-contacto p{
@@ -211,15 +248,17 @@ h4{
 
 /*-----------------------------------------------------------*/
 /*SECCION INFERIOR - Organiza y solo afecta a los elementos del BLOG*/
-.seccion-inferior{
-    display: flex;/*Ubica todos los elementos de forma continua de modo vertical, para luego ser acomodados a nuestro antojo dentro del contenedor*/
-    justify-content: space-between;/*Permite aplicar espacio entre un elemento y otro ubicando cada uno de los elemento arriba y abajo o de izquierda y derecha, dependiendo su ubicación*/
-}   
-.seccion-inferior .blog{
-    flex-basis: 60%;/*Porporsiona un tamaño basico entre el blog y el testimonial*/
-}
-.seccion-inferior .testimoniales{
-    flex-basis: calc(40% - 3rem);/*Calcula un tamaño basico entre los elementos exitentes. En este caso se da entre articulo y testimonial de manera vertical*/
+@media (min-width: 768px){
+    .seccion-inferior{
+        display: flex;/*Ubica todos los elementos de forma continua de modo vertical, para luego ser acomodados a nuestro antojo dentro del contenedor*/
+        justify-content: space-between;/*Permite aplicar espacio entre un elemento y otro ubicando cada uno de los elemento arriba y abajo o de izquierda y derecha, dependiendo su ubicación*/
+    }   
+    .seccion-inferior .blog{
+        flex-basis: 60%;/*Porporsiona un tamaño basico entre el blog y el testimonial*/
+    }
+    .seccion-inferior .testimoniales{
+        flex-basis: calc(40% - 3rem);/*Calcula un tamaño basico entre los elementos exitentes. En este caso se da entre articulo y testimonial de manera vertical*/
+    }
 }
 .entrada-blog{
     display: flex;/*Ubica todos los elementos de forma continua de modo vertical, para luego ser acomodados a nuestro antojo dentro del contenedor*/
@@ -229,11 +268,13 @@ h4{
 .entrada-blog :last-of-type{
     margin-bottom: 0;/*Elimina el espacio en la parte inferior del ultimo articulo*/
 }
-.entrada-blog .imagen{
-    flex-basis: 40%;/*Porporsiona un tamaño basico a la imagen*/
-}
-.entrada-blog .texto-entrada{
-    flex-basis: calc(60% - 3rem);/*Calcula un tamaño basico entre los elementos exitentes*/
+@media (min-width: 768px){
+    .entrada-blog .imagen{
+        flex-basis: 40%;/*Porporsiona un tamaño basico a la imagen*/
+    }
+    .entrada-blog .texto-entrada{
+        flex-basis: calc(60% - 3rem);/*Calcula un tamaño basico entre los elementos exitentes*/
+    }
 }
 .texto-entrada a{
     color: #000000;/*Aplica color texto de enlace*/
@@ -297,9 +338,22 @@ h4{
     margin: 0;/*Aplica cero espacios al elmento en su parte externa*/    
 }
 .contenedor-footer{
-    padding: 3rem 0;/*Aplica espacio hacia dentro, para este caso solo aplica espacio dentro del elemento a y abajo de 3rem y en sus lados izquierda y derecha quedan en 0.*/
-    display: flex;/*Permite que los elementos se ubiquen de manera vertical seguido uno del otro*/    
-    justify-content: space-between;/*Aplica un espacio entre cada elemento permitiendo ubicar a los extremos según su orientación. Para este caso se aplica para que los elementos se ubicara uno al extremo derecho y el otro al izquierdo*/
+    padding: 3rem 0;/*Aplica espacio hacia dentro, para este caso solo aplica espacio dentro del elemento a y abajo de 3rem y en sus lados izquierda y derecha quedan en 0.*/    
+    text-align: center;
+}
+@media (){
+  .contenedor-footer{
+       display: flex;/*Permite que los elementos se ubiquen de manera vertical seguido uno del otro*/    
+       justify-content: space-between;/*Aplica un espacio entre cada elemento permitiendo ubicar a los extremos según su orientación. Para este caso se aplica para que los elementos se ubicara uno al extremo derecho y el otro al izquierdo*/
+   }
+}
+.site-footer{
+    display: none;/*Permite ocultar ciertos elementos*/
+}  
+@media (){
+    .site-footer{
+        display: block;/*Permite ocultar ciertos elementos*/
+    }
 }
 .copy{
     color: #ffffff;/*Aplica colo al texto parráfo*/
@@ -310,10 +364,12 @@ h4{
 /*-----------------------------------------------------------*/
 /*Generación de estilos para las páginas internas del proyecto*/
 /*NOSOTROS*/
-.contenido-nosotros{
-    display: grid;/*Permite determinar el tipo de caja o cajas que estan generadas para un elemento*/
-    grid-template-columns: repeat(2, 1fr);/*Permite especificar la unión de dos columnas*/
-    grid-column-gap: 2rem;/*Especifica el espacio en medio de las dos columnas*/
+@media (min-width: 768px){
+   .contenido-nosotros{
+        display: grid;/*Permite determinar el tipo de caja o cajas que estan generadas para un elemento*/
+        grid-template-columns: repeat(2, 1fr);/*Permite especificar la unión de dos columnas*/
+        grid-column-gap: 2rem;/*Especifica el espacio en medio de las dos columnas*/
+    } 
 }
 .texto-nosotros blockquote{
     font-weight: 900;/*Especifica el grosor del texto*/
