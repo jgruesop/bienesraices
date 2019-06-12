@@ -225,7 +225,7 @@ h4{
     display: flex;/*Ubica todos los elementos de forma continua de modo vertical, para luego ser acomodados a nuestro antojo dentro del contenedor*/
 }
 .icono-caracteristicas li, img{
-    margin-right: 2rem;/*Asigna un margen de separación entre el icono y el texto hacia la derecha*/
+    margin-right: 1rem;/*Asigna un margen de separación entre el icono y el texto hacia la derecha*/
     justify-content: flex-end;/*Justifica la imagen al hacia el lado izquierdo*/
 }
 .ver-todas{
