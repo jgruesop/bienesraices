@@ -375,10 +375,12 @@ h4{
 /*-----------------------------------------------------------*/
 /*Generación de estilos para las páginas internas del proyecto*/
 /*NOSOTROS*/
-.contenido-nosotros{
-    display: grid;/*Permite determinar el tipo de caja o cajas que estan generadas para un elemento*/
-    grid-template-columns: repeat(2, 1fr);/*Permite especificar la unión de dos columnas*/
-    grid-column-gap: 2rem;/*Especifica el espacio en medio de las dos columnas*/
+@media (min-width: 768px){
+    .contenido-nosotros{
+        display: grid;/*Permite determinar el tipo de caja o cajas que estan generadas para un elemento*/
+        grid-template-columns: repeat(2, 1fr);/*Permite especificar la unión de dos columnas*/
+        grid-column-gap: 2rem;/*Especifica el espacio en medio de las dos columnas*/
+    }
 }
 .texto-nosotros blockquote{
     font-weight: 900;/*Especifica el grosor del texto*/
