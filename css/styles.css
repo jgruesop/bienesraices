@@ -216,16 +216,16 @@ h4{
     display: flex;/*Ubica todos los elementos de forma continua de modo vertical, para luego ser acomodados a nuestro antojo dentro del contenedor*/
     list-style: none;/*Elimina las viñetas existentes en una lista. Pero tambien permite personalizar el icono de la viñeta de distintas maneras*/
     padding: 0;/*Elimina el tamaño de los bordes por defecto de los Li*/
-    flex: 1;/*El valor 1 permite que el elemento se expanda lo que más pueda, respetando el max-width*/
+    flex: 0 0 72%;/*El valor 1 permite que el elemento se expanda lo que más pueda, respetando el max-width*/
     max-width: 50rem;/*Permite dar un ancho maximo de 500px*/
-    flex: 1;/*Con el valor 1 le indica al elmento que se exapanda lo que más pueda respetando el tamaño del contenedor*/
+    /*flex: 1;/*Con el valor 1 le indica al elmento que se exapanda lo que más pueda respetando el tamaño del contenedor*/
 }
 .icono-caracteristicas li{
     flex: 1;/*Con el valor 1 le indica al elmento que se exapanda lo que más pueda respetando el tamaño del contenedor*/
     display: flex;/*Ubica todos los elementos de forma continua de modo vertical, para luego ser acomodados a nuestro antojo dentro del contenedor*/
 }
 .icono-caracteristicas li, img{
-    margin-right: 1rem;/*Asigna un margen de separación entre el icono y el texto hacia la derecha*/
+    margin-right: 2rem;/*Asigna un margen de separación entre el icono y el texto hacia la derecha*/
     justify-content: flex-end;/*Justifica la imagen al hacia el lado izquierdo*/
 }
 .ver-todas{
